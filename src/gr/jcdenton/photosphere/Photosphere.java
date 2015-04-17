@@ -43,7 +43,6 @@ public class Photosphere extends CordovaPlugin {
 	}
     
     private void showImg(String imgurl){
-        //imgurl = "http://epirustreasures.gr/ARTA_PARADOTEA/THESSPROTIA/THESPROTIA_mobile_360_picture/elea.jpg";
         new LoadImage().execute(imgurl);
 	}
     
