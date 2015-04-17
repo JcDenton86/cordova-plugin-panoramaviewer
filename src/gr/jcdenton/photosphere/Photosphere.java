@@ -68,7 +68,7 @@ public class Photosphere extends CordovaPlugin {
                             output.write(buffer, 0, bytesRead);
                     }
                     } finally {output.close();}
-                } finally {;input.close();}
+                } finally {input.close();}
             }catch(Exception e){}
             return storagePath+"/photo360.jpg";
         }
