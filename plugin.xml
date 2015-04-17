@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="gr.jcdenton.photosphere"
+    version="1.0.0">
+	
+	<name>PhotosphereViewer</name>
+	
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <description>Support Photosphere API for Android</description>
+    <author>Jc Denton</author>
+    <keywords>panorama,photosphere</keywords>
+    <license>MIT</license>
+    
+    <js-module src="www/photosphere.js" name="Photosphere">
+        <clobbers target="Photosphere" />
+    </js-module>
+    
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Photosphere" >
+                <param name="android-package" value="gr.jcdenton.photosphere.Photosphere"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="application">
+			<activity android:label="@string/app_name" android:name="gr.jcdenton.photosphere.PanoramaViewer" android:noHistory="true">
+			</activity>
+            <uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+		
+        <source-file src="src/gr/jcdenton/photosphere/Photosphere.java" target-dir="src/gr/jcdenton/photosphere" />
+		<source-file src="src/gr/jcdenton/photosphere/PanoramaViewer.java" target-dir="src/gr/jcdenton/photosphere" />
+    </platform>
+</plugin>
