@@ -3,6 +3,8 @@
 I created this plugin for the purposes of my project and decided to make it public. Photosphere plugin uses the <a href="https://developers.google.com/photo-sphere/android/">Panorama API</a> and displays the image in the Photosphere viewer.
 Photospere plugin downloads an image on the background from a user specified URL and saves it to a local file. Then it loads the photosphere viewer and displays the image natively
 
+<img src="https://dl.dropboxusercontent.com/u/6816009/photospheredemo.gif"/>
+
 An working example can be found on <a href="https://github.com/JcDenton86/photospherePlugin_example.git"> Photosphere example</a>
 
 # Install
