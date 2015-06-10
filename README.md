@@ -23,7 +23,8 @@ Using this plugin is simple:
 
 ```
 window.plugins.photosphere.view({
-      imageurl:"http://photosphereviewer.net/img/demo/demo1.jpg"},
+      imageurl:"http://photosphereviewer.net/img/demo/demo1.jpg",
+	  title:"Image Title"},
       function() {},
       function() {}
   )
