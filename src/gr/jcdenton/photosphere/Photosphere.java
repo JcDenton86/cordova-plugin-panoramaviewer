@@ -34,7 +34,8 @@ public class Photosphere extends CordovaPlugin {
 		try {
 			JSONObject jobject = args.getJSONObject(0);
 			String imgOrVid = jobject.getString("imageurl");
-            showImg(jobject.getString("imageurl"));
+			String title = jobject.getString("title");
+            showImg(title, imgOrVid);//jobject.getString("imageurl")
 			callbackContext.sendPluginResult(new PluginResult(status, result));
 		} catch (JSONException e) {
             callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION));
@@ -42,22 +43,30 @@ public class Photosphere extends CordovaPlugin {
         return true;
 	}
     
-    private void showImg(String imgurl){
-        new LoadImage().execute(imgurl);
+    private void showImg(String title, String imgurl){
+        new LoadImage(imgurl,title).execute();
 	}
     
      private class LoadImage extends AsyncTask<String, String, String> {
+		 
+		 String urlimg, mTitle;
+		 
+		 public LoadImage(String imgURL, String title){
+			 urlimg = imgURL;
+			 mTitle = title;
+		 }
         @Override
         protected void onPreExecute() {
                 super.onPreExecute();
-                pDialog = new ProgressDialog(cordova.getActivity());
-                pDialog.setMessage("Loading Image ....");
+                pDialog = new ProgressDialog(cordova.getActivity(), ProgressDialog.THEME_DEVICE_DEFAULT_LIGHT);
+				pDialog.setTitle(mTitle);
+                pDialog.setMessage("Loading....");
                 pDialog.show();
         }
         protected String doInBackground(String... args) {
             File storagePath = Environment.getExternalStorageDirectory();
             try{
-                URL url = new URL (args[0]);
+                URL url = new URL (urlimg);//args[0]
                 InputStream input = url.openStream();
                 try {
                     OutputStream output = new FileOutputStream (storagePath + "/photo360.jpg");
