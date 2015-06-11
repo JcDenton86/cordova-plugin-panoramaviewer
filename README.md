@@ -34,8 +34,8 @@ var encodedURL = encodeURI(panomobile);
 window.plugins.photosphere.view({	  
       imageurl: encodedURL, // = http://photosphereviewer.net/img/demo/demo1.jpg
 	  title:"Image Title"},
-      function() {},
-      function() {}
+      function(msg) {console.log(msg)},
+      function(error) {onsole.log(error)}
   )
 ```
 
