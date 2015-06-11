@@ -1,0 +1,33 @@
+{
+  "name": "JcDenton",
+  "version": "1.0.0",
+  "description": "Support Photosphere API for Android",
+  "cordova": {
+    "id": "gr.jcdenton.photosphere",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JcDenton86/gr.denton.photosphere.git"
+  },
+  "keywords": [
+    "panorama",
+    "photosphere",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "JcDenton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JcDenton86/gr.denton.photosphere/issues"
+  },
+  "homepage": "https://github.com/JcDenton86/gr.denton.photosphere#readme"
+}
