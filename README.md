@@ -27,12 +27,11 @@ Panorama API is coming through Google Play Services, so make sure you have added
 Using this plugin is simple:
 
 ```
-window.plugins.photosphere.view({
-	
-	  //depending on your object you might have to encode the url before you send it over:
-	  var panomobile = object.pano.url;	
-	  var encodedURL = encodeURI(panomobile);
-	  
+//depending on your object you might have to encode the url before you send it over:
+var panomobile = object.pano.url;	
+var encodedURL = encodeURI(panomobile);
+      
+window.plugins.photosphere.view({	  
       imageurl: encodedURL, // = http://photosphereviewer.net/img/demo/demo1.jpg
 	  title:"Image Title"},
       function() {},
