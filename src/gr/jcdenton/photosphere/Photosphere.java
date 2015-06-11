@@ -25,22 +25,23 @@ import org.apache.cordova.PluginResult;
 public class Photosphere extends CordovaPlugin {
     
     ProgressDialog pDialog;
-    
+    public static CallbackContext cbcxt;
+	
     @Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
-		PluginResult.Status status = PluginResult.Status.OK;
 		JSONArray result = new JSONArray();
-		
+		cbcxt = callbackContext;
 		try {
 			JSONObject jobject = args.getJSONObject(0);
 			String imgOrVid = jobject.getString("imageurl");
 			String title = jobject.getString("title");
-            showImg(title, imgOrVid);//jobject.getString("imageurl")
-			callbackContext.sendPluginResult(new PluginResult(status, result));
-		} catch (JSONException e) {
-            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION));
-        }
-        return true;
+            showImg(title, imgOrVid);//jobject.getString("imageurl")			
+			PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
+			pluginResult.setKeepCallback(true);
+			return true;
+			
+		} catch (JSONException e) {}
+        return false;
 	}
     
     private void showImg(String title, String imgurl){
@@ -78,17 +79,21 @@ public class Photosphere extends CordovaPlugin {
                     }
                     } finally {output.close();}
                 } finally {input.close();}
-            }catch(Exception e){}
+            }catch(Exception e){cbcxt.error(e.getMessage());return null;}
             return storagePath+"/photo360.jpg";
         }
         protected void onPostExecute(String path) {
             if(path != null){
+				PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
+				pluginResult.setKeepCallback(false);
+				cbcxt.success("Local file: "+path+" created successfully");				
                 Intent intent = new Intent(cordova.getActivity().getApplicationContext(), PanoramaViewer.class);
                 intent.putExtra("filepath", path);
                 cordova.getActivity().startActivity(intent);
                 pDialog.dismiss();
             }else{
                pDialog.dismiss();
+			   cbcxt.error("Local path: "+path+" could not be created. Check the image URL");
              }
         }
     }
