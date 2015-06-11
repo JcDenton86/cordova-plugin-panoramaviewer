@@ -1,11 +1,16 @@
 # gr.denton.photosphere
 
 I created this plugin for the purposes of my project and decided to make it public. Photosphere plugin uses the <a href="https://developers.google.com/photo-sphere/android/">Panorama API</a> and displays the image in the Photosphere viewer.
-Photospere plugin downloads an image on the background from a user specified URL and saves it to a local file. Then it loads the photosphere viewer and displays the image natively
+
+# How it works
+
+The plugin accepts two parameters for now, an image url and a title. It downloads the image on the background showing a progress dialog and saves it to a local file. Then it loads the photosphere viewer and displays the image natively.
+Tried on:
+<ul><li>Android 5.0+</li><li>Android 4.0+</li></ul>
 
 <img src="https://dl.dropboxusercontent.com/u/6816009/photospheredemo.gif"/>
 
-An working example can be found on <a href="https://github.com/JcDenton86/photospherePlugin_example.git"> Photosphere example</a>
+A working example can be found on <a href="https://github.com/JcDenton86/photospherePlugin_example.git"> Photosphere example</a>
 
 # Install
 
@@ -23,14 +28,20 @@ Using this plugin is simple:
 
 ```
 window.plugins.photosphere.view({
-      imageurl:"http://photosphereviewer.net/img/demo/demo1.jpg",
+	
+	  //depending on your object you might have to encode the url before you send it over:
+	  var panomobile = object.pano.url;	
+	  var encodedURL = encodeURI(panomobile);
+	  
+      imageurl: encodedURL, // = http://photosphereviewer.net/img/demo/demo1.jpg
 	  title:"Image Title"},
       function() {},
       function() {}
   )
 ```
 
-#To Do
-1. add option to load a panorama image from a local folder
+# If you like
+You can propose additions and contribute or open an issue.
+
 
 
