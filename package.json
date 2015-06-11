@@ -1,5 +1,5 @@
 {
-  "name": "JcDenton",
+  "name": "gr.denton.photosphere",
   "version": "1.0.0",
   "description": "Support Photosphere API for Android",
   "cordova": {
