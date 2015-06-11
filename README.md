@@ -18,11 +18,11 @@ You can install this plugin using common cordova CLI commands:
 
 `cordova plugin add https://github.com/JcDenton86/gr.denton.photosphere.git`
 
-#Dependencies
+# Dependencies
 
 Panorama API is coming through Google Play Services, so make sure you have added `google play services` plugin on your project.
 
-#Usage
+# Usage
 
 Using this plugin is simple:
 
