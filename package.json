@@ -1,6 +1,6 @@
 {
-  "name": "gr.denton.photosphere",
-  "version": "1.0.1",
+  "name": "cordova-plugin-panoramaviewer",
+  "version": "1.0.2",
   "description": "Support Photosphere API for Android",
   "cordova": {
     "id": "gr.jcdenton.photosphere",
