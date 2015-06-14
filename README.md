@@ -16,8 +16,11 @@ A working example can be found on <a href="https://github.com/JcDenton86/photosp
 
 You can install this plugin using common cordova CLI commands:
 
-`cordova plugin add https://github.com/JcDenton86/gr.denton.photosphere.git`
-
+```
+cordova plugin add https://github.com/JcDenton86/gr.denton.photosphere.git
+//OR
+cordova plugin add cordova-plugin-panoramaviewer
+```
 # Dependencies
 
 Panorama API is coming through Google Play Services, so make sure you have added `google play services` plugin on your project.
