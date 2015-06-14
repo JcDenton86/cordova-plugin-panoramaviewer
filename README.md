@@ -5,7 +5,7 @@ I created this plugin for the purposes of my project and decided to make it publ
 # How it works
 
 The plugin accepts two parameters for now, an image url and a title. It downloads the image on the background showing a progress dialog and saves it to a local file. Then it loads the photosphere viewer and displays the image natively.
-Tried on:
+Tested on:
 <ul><li>Android 5.0+</li><li>Android 4.0+</li></ul>
 
 <img src="https://dl.dropboxusercontent.com/u/6816009/photospheredemo.gif"/>
@@ -43,7 +43,7 @@ window.plugins.photosphere.view({
 ```
 
 # If you like
-You can propose additions and contribute or open an issue.
+You can propose additions and/or contribute or open an issue.
 
 
 
