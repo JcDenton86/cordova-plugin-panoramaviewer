@@ -1,4 +1,4 @@
-# gr.denton.photosphere
+# cordova-plugin-panoramaviewer
 
 I created this plugin for the purposes of my project and decided to make it public. Photosphere plugin uses the <a href="https://developers.google.com/photo-sphere/android/">Panorama API</a> and displays the image in the Photosphere viewer.
 
