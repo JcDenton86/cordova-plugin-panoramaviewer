@@ -28,22 +28,21 @@ public class Photosphere extends CordovaPlugin {
     public static CallbackContext cbcxt;
 	
     @Override
-	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
-		JSONArray result = new JSONArray();
+	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		cbcxt = callbackContext;
-		try {
-			JSONObject jobject = args.getJSONObject(0);
-			String imgurl = jobject.optString("imageurl");
-			String title = jobject.optString("title");
-			String message = jobject.optString("message");
-			int imgsource = jobject.optInt("imageSource",1);
-            loadImg(title, message, imgurl,imgsource);	
-			PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
-			pluginResult.setKeepCallback(true);
-			return true;
-			
-		} catch (JSONException e) {}
-        return false;
+
+		JSONObject jobject = args.getJSONObject(0);
+		String imgurl = jobject.optString("imageurl");
+		String title = jobject.optString("title");
+		String message = jobject.optString("message");
+		int imgsource = jobject.optInt("imageSource",1);
+		
+		loadImg(title, message, imgurl,imgsource);	
+		
+		PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
+		pluginResult.setKeepCallback(true);
+		
+		return true;
 	}
     
     private void loadImg(String title, String msg, String imgurl, int imgsrc){
