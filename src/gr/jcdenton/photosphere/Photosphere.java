@@ -48,13 +48,15 @@ public class Photosphere extends CordovaPlugin {
         new LoadImage(imgurl,title).execute();
 	}
     
-     private class LoadImage extends AsyncTask<String, String, String> {
+    private class LoadImage extends AsyncTask<String, String, String> {
 		 
 		 String urlimg, mTitle;
+		 String storagepath;
 		 
 		 public LoadImage(String imgURL, String title){
 			 urlimg = imgURL;
 			 mTitle = title;
+			 storagepath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator  + "Android" + File.separator + "data" + File.separator + cordova.getActivity().getPackageName() + File.separator + "files";
 		 }
         @Override
         protected void onPreExecute() {
@@ -65,12 +67,11 @@ public class Photosphere extends CordovaPlugin {
                 pDialog.show();
         }
         protected String doInBackground(String... args) {
-            File storagePath = Environment.getExternalStorageDirectory();
             try{
-                URL url = new URL (urlimg);//args[0]
+                URL url = new URL (urlimg);
                 InputStream input = url.openStream();
                 try {
-                    OutputStream output = new FileOutputStream (storagePath + "/photo360.jpg");
+                    OutputStream output = new FileOutputStream (storagepath + "/photo360.jpg");
                 try {
                         byte[] buffer = new byte[2048];
                         int bytesRead = 0;
@@ -80,20 +81,20 @@ public class Photosphere extends CordovaPlugin {
                     } finally {output.close();}
                 } finally {input.close();}
             }catch(Exception e){cbcxt.error(e.getMessage());return null;}
-            return storagePath+"/photo360.jpg";
+            return storagepath+"/photo360.jpg";
         }
-        protected void onPostExecute(String path) {
-            if(path != null){
+        protected void onPostExecute(String imgpath) {
+            if(imgpath != null){
 				PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
 				pluginResult.setKeepCallback(false);
-				cbcxt.success("Local file: "+path+" created successfully");				
+				cbcxt.success("Local file: "+imgpath+" created successfully");				
                 Intent intent = new Intent(cordova.getActivity().getApplicationContext(), PanoramaViewer.class);
-                intent.putExtra("filepath", path);
+                intent.putExtra("filepath", imgpath);
                 cordova.getActivity().startActivity(intent);
                 pDialog.dismiss();
             }else{
                pDialog.dismiss();
-			   cbcxt.error("Local path: "+path+" could not be created. Check the image URL");
+			   cbcxt.error("Local path: "+imgpath+" could not be created. Check the image URL");
              }
         }
     }
