@@ -8,6 +8,11 @@ Photosphere.prototype.view = function(content, success, fail) {
     }, 'Photosphere', '', [content]);
 };
 
+Photosphere.prototype.IMAGE_SOURCE = {
+  LOAD_REMOTE_IMAGE         : 1, // default
+  LOAD_LOCAL_IMAGE            : 2
+};
+
 if(!window.plugins) {
     window.plugins = {};
 }

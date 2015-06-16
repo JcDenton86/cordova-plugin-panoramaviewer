@@ -33,9 +33,11 @@ public class Photosphere extends CordovaPlugin {
 		cbcxt = callbackContext;
 		try {
 			JSONObject jobject = args.getJSONObject(0);
-			String imgOrVid = jobject.getString("imageurl");
-			String title = jobject.getString("title");
-            showImg(title, imgOrVid);//jobject.getString("imageurl")			
+			String imgurl = jobject.optString("imageurl");
+			String title = jobject.optString("title");
+			String message = jobject.optString("message");
+			int imgsource = jobject.optInt("imageSource",1);
+            loadImg(title, message, imgurl,imgsource);	
 			PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
 			pluginResult.setKeepCallback(true);
 			return true;
@@ -44,18 +46,19 @@ public class Photosphere extends CordovaPlugin {
         return false;
 	}
     
-    private void showImg(String title, String imgurl){
-        new LoadImage(imgurl,title).execute();
+    private void loadImg(String title, String msg, String imgurl, int imgsrc){
+		if(imgsrc==1)
+			new LoadImage(imgurl, title, msg).execute();
 	}
     
     private class LoadImage extends AsyncTask<String, String, String> {
 		 
-		 String urlimg, mTitle;
-		 String storagepath;
+		 String urlimg, mTitle, mMessage, storagepath;
 		 
-		 public LoadImage(String imgURL, String title){
+		 public LoadImage(String imgURL, String title, String msg){
 			 urlimg = imgURL;
 			 mTitle = title;
+			 mMessage = msg;
 			 storagepath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator  + "Android" + File.separator + "data" + File.separator + cordova.getActivity().getPackageName() + File.separator + "files";
 		 }
         @Override
@@ -63,7 +66,7 @@ public class Photosphere extends CordovaPlugin {
                 super.onPreExecute();
                 pDialog = new ProgressDialog(cordova.getActivity(), ProgressDialog.THEME_DEVICE_DEFAULT_LIGHT);
 				pDialog.setTitle(mTitle);
-                pDialog.setMessage("Loading....");
+                pDialog.setMessage(mMessage);
                 pDialog.show();
         }
         protected String doInBackground(String... args) {
