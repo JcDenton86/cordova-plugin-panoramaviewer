@@ -38,7 +38,7 @@ window.plugins.photosphere.view({
       imageurl: encodedURL, // = http://photosphereviewer.net/img/demo/demo1.jpg
 	  title:"Image Title"},
       function(msg) {console.log(msg)},
-      function(error) {onsole.log(error)}
+      function(error) {console.log(error)}
   )
 ```
 
