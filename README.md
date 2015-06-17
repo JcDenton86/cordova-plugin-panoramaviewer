@@ -4,7 +4,7 @@ I created this plugin for the purposes of my project and decided to make it publ
 
 # How it works
 
-The plugin accepts two parameters for now, an image url and a title. It downloads the image on the background showing a progress dialog and saves it to a local file. Then it loads the photosphere viewer and displays the image natively.
+The plugin accepts four parameters for now, an image url, a title, a message and an option that indicates from where to load the image (right now only `remote` option is supported). It downloads the image on the background showing a progress dialog and saves it to a local file. Then it loads the photosphere viewer and displays the image natively.
 Tested on:
 <ul><li>Android 5.0+</li><li>Android 4.0+</li></ul>
 
