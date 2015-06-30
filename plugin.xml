@@ -5,15 +5,16 @@
     version="1.0.0">
 	
 	<name>PhotosphereViewer</name>
-	
-    <engines>
-        <engine name="cordova" version=">=3.0.0" />
-    </engines>
-
     <description>Support Photosphere API for Android</description>
     <author>Jc Denton</author>
     <keywords>panorama,photosphere</keywords>
     <license>MIT</license>
+	
+	<engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+	
+	<!--<dependency id="com.google.play.services"/>-->
     
     <js-module src="www/photosphere.js" name="Photosphere">
         <clobbers target="Photosphere" />

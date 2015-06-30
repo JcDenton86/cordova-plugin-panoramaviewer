@@ -23,7 +23,7 @@ cordova plugin add cordova-plugin-panoramaviewer
 ```
 # Dependencies
 
-Panorama API is coming through Google Play Services, so make sure you have added `google play services` plugin on your project.
+Panorama API is coming through Google Play Services, so make sure you have added google play services plugin on your project.
 
 # Usage
 
