@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="gr.jcdenton.photosphere"
-    version="1.0.6">
+    id="cordova-plugin-panoramaviewer"
+    version="1.0.9">
 	
 	<name>PhotosphereViewer</name>
     <description>Support Photosphere API for Android</description>
