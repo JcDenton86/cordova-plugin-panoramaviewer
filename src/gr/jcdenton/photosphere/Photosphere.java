@@ -60,7 +60,7 @@ public class Photosphere extends CordovaPlugin {
             storagepath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator  + "Android" + File.separator + "data" + File.separator + cordova.getActivity().getPackageName() + File.separator + "files";
             File f = new File(storagepath);
             if(!f.isDirectory())
-            f.mkdirs();
+                f.mkdirs();
             
         }
         
