@@ -61,7 +61,6 @@ public class Photosphere extends CordovaPlugin {
             File f = new File(storagepath);
             if(!f.isDirectory())
                 f.mkdirs();
-            
         }
         
         @Override
