@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-panoramaviewer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Support Photosphere API for Android",
   "cordova": {
     "id": "gr.jcdenton.photosphere",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JcDenton86/gr.denton.photosphere.git"
+    "url": "git+https://github.com/JcDenton86/gr.denton.photosphere.git"
   },
   "keywords": [
     "panorama",
