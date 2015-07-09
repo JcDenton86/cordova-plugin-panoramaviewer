@@ -10,8 +10,6 @@ Tested on:
 
 <img src="https://dl.dropboxusercontent.com/u/6816009/photospheredemo.gif"/>
 
-A working example can be found on <a href="https://github.com/JcDenton86/photospherePlugin_example.git"> Photosphere example</a>
-
 # Install
 
 You can install this plugin using common cordova CLI commands:
