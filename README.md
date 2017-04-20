@@ -8,7 +8,7 @@ The plugin accepts four parameters for now, an image url, a title, a message and
 Tested on:
 <ul><li>Android 5.0+</li><li>Android 4.0+</li></ul>
 
-<img src="https://dl.dropboxusercontent.com/u/6816009/photospheredemo.gif"/>
+
 
 # Install
 
@@ -27,7 +27,7 @@ Panorama API is coming through Google Play Services, so make sure you have added
 
 Using this plugin is simple:
 
-```
+```javascript
 //depending on your object you might have to encode the url before you send it over:
 var panomobile = object.pano.url;	
 var encodedURL = encodeURI(panomobile);
